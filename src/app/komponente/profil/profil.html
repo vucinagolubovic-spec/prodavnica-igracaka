@@ -1,0 +1,56 @@
+<div class="profil-kontejner">
+  
+  <div class="profil-zaglavlje">
+    <div class="ikona-korisnika">👤</div>
+    <h2>Moj Profil</h2>
+  </div>
+
+  <div *ngIf="!korisnik" style="text-align: center; padding: 20px;">
+    <h3>Trenutno niste prijavljeni.</h3>
+    <p>Morate se prijaviti da biste videli svoj profil i podatke.</p>
+    <br>
+    <a routerLink="/prijava" style="background-color: #673AB7; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Prijavite se ovde</a>
+  </div>
+
+  <div class="profil-podaci" *ngIf="korisnik && !editMod">
+    <p><strong>Ime i prezime:</strong> {{ korisnik.ime }} {{ korisnik.prezime }}</p>
+    <p><strong>Email adresa:</strong> {{ korisnik.email }}</p>
+    <p><strong>Datum rođenja:</strong> {{ korisnik.datumRodenja || 'Nije uneto' }}</p>
+    <p><strong>Telefon:</strong> {{ korisnik.telefon || 'Nije uneto' }}</p>
+    <p><strong>Adresa dostave:</strong> {{ korisnik.adresa || 'Nije uneto' }}</p>
+    
+    <button class="btn-izmeni" (click)="ukljuciEdit()">Izmeni profil</button>
+  </div>
+
+  <div class="profil-forma" *ngIf="korisnik && editMod">
+    <div class="forma-grupa">
+      <label>Ime:</label>
+      <input type="text" [(ngModel)]="korisnikEdit.ime">
+    </div>
+    <div class="forma-grupa">
+      <label>Prezime:</label>
+      <input type="text" [(ngModel)]="korisnikEdit.prezime">
+    </div>
+    <div class="forma-grupa">
+      <label>Email adresa:</label>
+      <input type="email" [(ngModel)]="korisnikEdit.email" disabled title="Email se ne moze menjati">
+    </div>
+    <div class="forma-grupa">
+      <label>Datum rođenja:</label>
+      <input type="date" [(ngModel)]="korisnikEdit.datumRodenja" disabled title="Datum rođenja se ne može menjati">
+    </div>
+    <div class="forma-grupa">
+      <label>Telefon:</label>
+      <input type="text" [(ngModel)]="korisnikEdit.telefon">
+    </div>
+    <div class="forma-grupa">
+      <label>Adresa dostave:</label>
+      <input type="text" [(ngModel)]="korisnikEdit.adresa">
+    </div>
+    <div class="akcije-dugmici">
+      <button class="btn-sacuvaj" (click)="sacuvaj()">Sačuvaj izmene</button>
+      <button class="btn-odustani" (click)="odustani()">Odustani</button>
+    </div>
+  </div>
+
+</div>

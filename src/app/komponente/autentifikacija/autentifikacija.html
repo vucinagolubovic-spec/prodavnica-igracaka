@@ -1,0 +1,60 @@
+<div class="auth-kontejner">
+  
+  <div class="auth-kartica" *ngIf="jePrijava">
+    <h2>Prijavite se</h2>
+    <p class="podnaslov">Unesite Vaš email i lozinku</p>
+    
+    <div class="forma-grupa">
+      <input type="email" [(ngModel)]="prijavaPodaci.email" placeholder="Email adresa">
+    </div>
+    <div class="forma-grupa">
+      <input type="password" [(ngModel)]="prijavaPodaci.lozinka" placeholder="Lozinka">
+    </div>
+    
+    <button class="btn-glavni" (click)="posaljiFormu()">Prijavi se</button>
+    
+    <p class="prebaci-mod">Nemate nalog? <a href="javascript:void(0)" (click)="promeniMod()">Registrujte se.</a></p>
+  </div>
+
+
+  <div class="auth-kartica" *ngIf="!jePrijava">
+    <h2>Registracija korisnika</h2>
+    <p class="podnaslov">Popunite podatke da kreirate nalog</p>
+    
+    <div class="forma-grupa">
+      <input type="text" [(ngModel)]="registracijaPodaci.ime" placeholder="Ime">
+    </div>
+    <div class="forma-grupa">
+      <input type="text" [(ngModel)]="registracijaPodaci.prezime" placeholder="Prezime">
+    </div>
+    <div class="forma-grupa">
+      <input type="email" [(ngModel)]="registracijaPodaci.email" placeholder="Email adresa">
+    </div>
+    <div class="forma-grupa">
+      <input type="password" [(ngModel)]="registracijaPodaci.lozinka" placeholder="Lozinka">
+    </div>
+    <div class="forma-grupa">
+      <label>Datum rođenja:</label>
+      <input type="date" [(ngModel)]="registracijaPodaci.datumRodenja" [max]="danasnjiDatum">
+    </div>
+    <div class="forma-grupa">
+      <label>Omiljeni tipovi igračaka:</label>
+      <div class="tipovi-grupa">
+        <label class="tip-opcija" *ngFor="let tip of tipoviIgracaka">
+          <input type="checkbox" [checked]="registracijaPodaci.omiljeniTipovi.includes(tip)" (change)="promeniOmiljeniTip(tip)">
+          <span>{{ tip }}</span>
+        </label>
+      </div>
+    </div>
+    
+    <div class="forma-grupa checkbox-grupa">
+      <input type="checkbox" id="uslovi" [(ngModel)]="registracijaPodaci.usloviPrihvaceni">
+      <label for="uslovi">Prihvatam uslove korišćenja</label>
+    </div>
+    
+    <button class="btn-glavni" (click)="posaljiFormu()">Registruj se</button>
+    
+    <p class="prebaci-mod">Već imate nalog? <a href="javascript:void(0)" (click)="promeniMod()">Vratite se nazad na prijavu.</a></p>
+  </div>
+
+</div>

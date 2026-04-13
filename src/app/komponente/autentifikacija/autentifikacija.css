@@ -1,0 +1,107 @@
+.auth-kontejner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh; /* Centrira formu na sredinu ekrana */
+}
+
+.auth-kartica {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-kartica h2 {
+  color: #673AB7; /* Prepoznatljiva ljubičasta */
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.podnaslov {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.forma-grupa {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.forma-grupa input[type="text"],
+.forma-grupa input[type="email"],
+.forma-grupa input[type="password"],
+.forma-grupa input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.forma-grupa input:focus {
+  border-color: #673AB7;
+  outline: none;
+}
+
+.checkbox-grupa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.tipovi-grupa {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tip-opcija {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.btn-glavni {
+  background-color: #673AB7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-glavni:hover {
+  background-color: #512da8;
+}
+
+.prebaci-mod {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.prebaci-mod a {
+  color: #673AB7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.prebaci-mod a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,58 @@
+<div class="pretraga-kontejner">
+  <h3>Napredna pretraga</h3>
+  
+  <div class="pretraga-polja">
+    <input type="text" [(ngModel)]="kriterijumi.naziv" placeholder="Naziv igračke...">
+    <input type="text" [(ngModel)]="kriterijumi.opis" placeholder="Deo opisa...">
+    
+    <select [(ngModel)]="kriterijumi.tip">
+      <option value="">Svi tipovi</option>
+      <option value="slagalica">Slagalica</option>
+      <option value="slikovnica">Slikovnica</option>
+      <option value="figura">Figura</option>
+      <option value="karakter">Karakter</option>
+      <option value="ostalo">Ostalo</option>
+    </select>
+
+    <select [(ngModel)]="kriterijumi.ciljnaGrupa">
+      <option value="">Sve ciljne grupe</option>
+      <option value="devojčica">Devojčice</option>
+      <option value="dečak">Dečaci</option>
+      <option value="svi">Svi</option>
+    </select>
+
+    <input type="number" [(ngModel)]="kriterijumi.cena" placeholder="Max. cena (RSD)">
+    
+    <button class="btn-pretrazi" (click)="pretrazi()">Pretraži</button>
+    <button class="btn-ponisti" (click)="ponisti()">Poništi</button>
+  </div>
+</div>
+
+<h2>Sve igračke</h2>
+
+<div class="katalog-grid">
+  <div class="igracka-kartica" *ngFor="let igracka of igracke">
+    
+    <div class="slika-kontejner">
+      <img [src]="igracka.slikaUrl" [alt]="igracka.naziv">
+    </div>
+    
+    <div class="sadrzaj-kartice">
+      <h3>{{ igracka.naziv }}</h3>
+      
+      <div class="detalji">
+        <p><strong>Tip:</strong> {{ igracka.tip }}</p>
+        <p><strong>Uzrast:</strong> {{ igracka.uzrast }}</p>
+        <p><strong>Za koga:</strong> {{ igracka.ciljnaGrupa }}</p>
+      </div>
+      
+      <p class="opis">{{ igracka.opis }}</p>
+      
+      <div class="cena-sekcija">
+        <span class="cena-tekst">{{ igracka.cena }} RSD</span>
+        <button class="kupi-dugme" (click)="dodajUKorpu(igracka)">Rezerviši</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="korpa-kontejner">
+  <h2>Vaša korpa i rezervacije</h2>
+
+  <div *ngIf="rezervacije.length === 0" class="prazna-korpa">
+    <p>Vaša korpa je trenutno prazna. Posetite katalog da rezervišete igračke!</p>
+  </div>
+
+  <table class="korpa-tabela" *ngIf="rezervacije.length > 0">
+    <thead>
+      <tr>
+        <th>Igračka</th>
+        <th>Cena</th>
+        <th>Status</th>
+        <th>Akcije / Ocena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rez of rezervacije">
+        
+        <td>
+          <strong>{{ rez.igracka.naziv }}</strong><br>
+          <small>{{ rez.igracka.tip }} | {{ rez.igracka.uzrast }}</small>
+        </td>
+        
+        <td>{{ rez.igracka.cena }} RSD</td>
+        
+        <td>
+          <span class="status-bedz" [ngClass]="rez.status">{{ rez.status }}</span>
+        </td>
+        
+        <td>
+          <div *ngIf="rez.status === 'rezervisano'">
+            <button class="btn-mali btn-pristiglo" (click)="promeniStatus(rez.id, 'pristiglo')">Označi kao Pristiglo</button>
+            <button class="btn-mali btn-otkazi" (click)="promeniStatus(rez.id, 'otkazano')">Otkaži rezervaciju</button>
+          </div>
+
+          <div *ngIf="rez.status === 'otkazano'">
+            <span class="tekst-otkazano">Rezervacija je otkazana.</span>
+          </div>
+
+          <div *ngIf="rez.status === 'pristiglo'">
+            
+            <div class="ocenjivanje" *ngIf="!rez.ocenjeno">
+              <span>Oceni: </span>
+              <span class="zvezdica" (click)="oceni(rez, 1)">⭐</span>
+              <span class="zvezdica" (click)="oceni(rez, 2)">⭐</span>
+              <span class="zvezdica" (click)="oceni(rez, 3)">⭐</span>
+              <span class="zvezdica" (click)="oceni(rez, 4)">⭐</span>
+              <span class="zvezdica" (click)="oceni(rez, 5)">⭐</span>
+            </div>
+            
+            <span class="hvala-ocena" *ngIf="rez.ocenjeno">Ocenjeno! ✔️</span>
+            <br>
+            <button class="btn-mali btn-obrisi" (click)="obrisi(rez.id)">Obriši iz korpe</button>
+          </div>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ukupno-sekcija" *ngIf="rezervacije.length > 0">
+    <h3>Ukupno za plaćanje: {{ ukupnaCena }} RSD</h3>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<nav class="glavni-meni">
+  <div class="logo">
+    <a routerLink="/">🧸 Igračke Shop</a>
+  </div>
+  
+  <div class="linkovi">
+    <a routerLink="/" routerLinkActive="aktivan" [routerLinkActiveOptions]="{exact: true}">Katalog</a>
+    <a routerLink="/korpa" routerLinkActive="aktivan">Korpa</a>
+    
+    <a routerLink="/profil" routerLinkActive="aktivan">Profil</a>
+    
+    <a routerLink="/prijava" routerLinkActive="aktivan" *ngIf="!authService.isUlogovan()">Prijavi se</a>
+    
+    <a href="javascript:void(0)" (click)="izlogujSe()" *ngIf="authService.isUlogovan()" style="background-color: #ffcdd2; color: #c62828;">Odjavi se</a>
+  </div>
+</nav>
