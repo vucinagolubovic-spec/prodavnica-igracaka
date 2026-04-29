@@ -46,7 +46,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box; /* Da polja ne probijaju granice kontejnera */
+  box-sizing: border-box; 
 }
 
 .btn-izmeni, .btn-sacuvaj, .btn-odustani {

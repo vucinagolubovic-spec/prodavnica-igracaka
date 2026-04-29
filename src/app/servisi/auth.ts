@@ -13,7 +13,7 @@ export class AuthService {
   ];
 
   constructor() {
-    // ČIM SE SERVIS POKRENE (npr. nakon refresha), PROVERI LOCALSTORAGE
+    
     const sacuvanKorisnik = localStorage.getItem('ulogovaniKorisnik');
     if (sacuvanKorisnik) {
       this.trenutniKorisnik = JSON.parse(sacuvanKorisnik);
@@ -32,7 +32,7 @@ export class AuthService {
     const nadjen = this.registrovaniKorisnici.find(k => k.email === email && k.lozinka === lozinka);
     if (nadjen) {
       this.trenutniKorisnik = { ...nadjen };
-      // SAČUVAJ U MEMORIJU PRETRAŽIVAČA
+    
       localStorage.setItem('ulogovaniKorisnik', JSON.stringify(this.trenutniKorisnik));
       return true;
     }
@@ -60,7 +60,7 @@ export class AuthService {
 
   odjaviSe(): void {
     this.trenutniKorisnik = null;
-    // OBRIŠI IZ MEMORIJE PRETRAŽIVAČA
+    
     localStorage.removeItem('ulogovaniKorisnik');
   }
 

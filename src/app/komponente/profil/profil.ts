@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router'; // Da mozemo da ubacimo link ka prijavi
+import { RouterLink } from '@angular/router'; 
 import { AuthService } from '../../servisi/auth';
 import { Korisnik } from '../../modeli/tipovi';
 

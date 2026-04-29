@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh; /* Centrira formu na sredinu ekrana */
+  min-height: 70vh; 
 }
 
 .auth-kartica {
@@ -16,7 +16,7 @@
 }
 
 .auth-kartica h2 {
-  color: #673AB7; /* Prepoznatljiva ljubičasta */
+  color: #673AB7; 
   margin-top: 0;
   margin-bottom: 5px;
 }

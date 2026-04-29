@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #673AB7; /* Ljubičasta tema */
+  background-color: #673AB7;
   padding: 15px 30px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -24,12 +24,12 @@
   transition: background-color 0.2s, color 0.2s;
 }
 
-/* Efekat kada pređemo mišem preko linka */
+
 .linkovi a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Stil za link stranice na kojoj se trenutno nalazimo */
+
 .linkovi a.aktivan {
   background-color: white;
   color: #673AB7;

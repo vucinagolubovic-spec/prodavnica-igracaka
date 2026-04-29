@@ -35,12 +35,12 @@ export class Autentifikacija {
 
   posaljiFormu(): void {
     if (this.jePrijava) {
-      // LOGIKA ZA PRIJAVU
+      
       if (this.prijavaPodaci.email && this.prijavaPodaci.lozinka) {
         const uspesno = this.authService.prijaviSe(this.prijavaPodaci.email, this.prijavaPodaci.lozinka);
         if(uspesno) {
           alert('Uspešno ste se prijavili!');
-          this.router.navigate(['/']); // Vodi na katalog
+          this.router.navigate(['/']); 
         } else {
           alert('Pogrešan email ili lozinka. Probajte: petar@gmail.com / 123');
         }
@@ -48,7 +48,7 @@ export class Autentifikacija {
         alert('Molimo unesite email i lozinku.');
       }
     } else {
-      // LOGIKA ZA REGISTRACIJU
+      
       if (this.registracijaPodaci.usloviPrihvaceni && this.registracijaPodaci.email) {
         if (this.registracijaPodaci.datumRodenja && this.registracijaPodaci.datumRodenja > this.danasnjiDatum) {
           alert('Datum rođenja ne može biti u budućnosti.');
@@ -58,9 +58,9 @@ export class Autentifikacija {
           if (!this.authService.registrujSe(this.registracijaPodaci))
           return; 
         alert('Uspešna registracija! Sada se prijavite sa vašim podacima.');
-        // Ne vodi na katalog, već prebacuje na formu za prijavu!
+        
         this.jePrijava = true; 
-        this.prijavaPodaci.email = this.registracijaPodaci.email; // Automatski mu upisujemo email da ne kuca opet
+        this.prijavaPodaci.email = this.registracijaPodaci.email; 
         this.prijavaPodaci.lozinka = ''; 
       } else {
         alert('Morate popuniti podatke i prihvatiti uslove korišćenja.');

@@ -16,6 +16,6 @@ export class Navigacija {
 
   izlogujSe() {
     this.authService.odjaviSe();
-    this.router.navigate(['/prijava']); // Prebacimo ga na stranu za prijavu
+    this.router.navigate(['/prijava']); 
   }
 }

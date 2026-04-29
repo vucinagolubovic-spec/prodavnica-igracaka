@@ -15,9 +15,9 @@ import { AuthService } from '../../servisi/auth';
 })
 export class Katalog implements OnInit {
   
-  igracke: Igracka[] = []; // Ovde ćemo čuvati igračke
+  igracke: Igracka[] = []; 
 
-  // Objekat u kom čuvamo sve što korisnik unese u polja
+  
   kriterijumi: any = {
     naziv: '',
     opis: '',
@@ -25,19 +25,19 @@ export class Katalog implements OnInit {
     ciljnaGrupa: '',
     cena: null
   };
-  // Uključujemo servis u našu komponentu
+  
   constructor(private igrackeService: IgrackeService, private korpaService: KorpaService, private authService: AuthService) {}
 
-  // ngOnInit se pokreće automatski čim se stranica učita
+  
   ngOnInit(): void {
     this.igracke = this.sortirajPoOmiljenimTipovima(this.igrackeService.getSveIgracke());
   }
-  // Funkcija koja se poziva na klik dugmeta "Pretraži"
+  
   pretrazi(): void {
     this.igracke = this.sortirajPoOmiljenimTipovima(this.igrackeService.pretraziIgracke(this.kriterijumi));
   }
 
-  // Funkcija za resetovanje pretrage
+ 
   ponisti(): void {
     this.kriterijumi = { naziv: '', opis: '', tip: '', ciljnaGrupa: '', cena: null };
     this.igracke = this.sortirajPoOmiljenimTipovima(this.igrackeService.getSveIgracke());
