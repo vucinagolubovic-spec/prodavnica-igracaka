@@ -5,7 +5,7 @@ import { Navigacija } from './komponente/navigacija/navigacija';
 
 @Component({
   selector: 'app-root',
-  // 2. KLJUČNI DEO: Ubacujemo je u listu imports, odmah pored RouterOutlet
+  
   imports: [RouterOutlet, Navigacija],
   templateUrl: './app.html',
   styleUrl: './app.css'
